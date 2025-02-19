@@ -1,7 +1,6 @@
-/*create database erp; /*cria o banc de dados*/
+create database erp; /*cria o banco de dados*/
 
 use erp; /*usa o banco de dados*/
-
 
 create table contato(
 	id int primary key identity(1,1),
@@ -27,24 +26,6 @@ insert into contato (nome, idade) values
 	('Daniel', 22),
 	('Monique', 22);
 
-drop table contato;*/ /*apaga a tabela*/
+/*drop table contato;*/ /*apaga a tabela*/
 
-/*drop table cliente;*/
 
-create table cliente(
-	id int primary key identity(1,1),
-	tipo int not null,
-	nome varchar(100) not null,
-	status tinyint not null,
-	email varchar(100) not null,
-	data_nasc date not null,
-	fornecedor tinyint not null,
-	transportadora tinyint not null,
-	representante tinyint not null,
-	funcionario tinyint not null,
-	parceiro_comercial tinyint not null
-);
-
-/*select * from cliente;*/
-
-/*alter table cliente add transportadora tinyint not null;*/
