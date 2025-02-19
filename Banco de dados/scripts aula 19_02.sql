@@ -17,3 +17,17 @@ create table pessoas(
 );
 
 select * from pessoas;
+
+create table endereco (
+	id int primary key identity(1,1),
+	tipo int not null,
+	pais varchar(100) not null,
+	uf varchar(2) not null,
+	estado varchar(30)not null,
+	cidade varchar(100) not null,
+	bairro varchar(100) not null,
+	rua varchar(100) not null,
+	numero varchar(6) not null,
+	complemento varchar(100),
+	obs text
+);
