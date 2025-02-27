@@ -78,7 +78,7 @@ namespace Atividade_01
             {
                 return;
             }
-            
+
         }
 
         private void salvarNota_Click(object sender, EventArgs e)
@@ -89,6 +89,25 @@ namespace Atividade_01
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                if (textBox2.TextLength == 3)
+                {
+                    textBox2.AppendText(".");
+                }
+                else if (textBox2.TextLength == 7)
+                {
+                    textBox2.AppendText(".");
+                }
+                else if (textBox2.TextLength == 11)
+                {
+                    textBox2.AppendText("-");
+                }
+            }
         }
     }
 }

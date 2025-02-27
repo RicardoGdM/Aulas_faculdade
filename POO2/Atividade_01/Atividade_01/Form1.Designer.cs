@@ -264,7 +264,7 @@
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(46, 19);
             radioButton2.TabIndex = 23;
-            radioButton2.Text = "R.A.";
+            radioButton2.Text = "CPF";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // nomeAluno
@@ -284,6 +284,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(271, 23);
             textBox2.TabIndex = 28;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label2
             // 
