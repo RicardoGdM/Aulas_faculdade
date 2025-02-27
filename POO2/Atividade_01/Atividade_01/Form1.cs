@@ -33,6 +33,17 @@ namespace Atividade_01
 
             if (buscaOk)
             {
+                if (radioButton1.Checked)
+                {
+                    MessageBox.Show("Nome encontrado!", "Encontrado");
+                }
+                else if (radioButton2.Checked)
+                {
+                    MessageBox.Show("R.A. encontrado!", "Encontrado");
+                }
+
+                label2.Visible = false;
+
                 label3.Visible = true;
                 comboBox1.Visible = true;
 
@@ -61,7 +72,7 @@ namespace Atividade_01
                 label7.Text += "10000 /12000  (" + notaMedia + "%)";
 
                 progressBar1.Visible = true;
-                progressBar1.Value = int(notaMedia);
+                progressBar1.Value = (int)notaMedia;
             }
             else
             {
@@ -72,8 +83,7 @@ namespace Atividade_01
 
         private void salvarNota_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBox1.Text);
-            Thread.Sleep(1000);
+            MessageBox.Show("Nota adicionada com sucesso!", "Nota adicionada");
         }
 
         private void label1_Click(object sender, EventArgs e)
