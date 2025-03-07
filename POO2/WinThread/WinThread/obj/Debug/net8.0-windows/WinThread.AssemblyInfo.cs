@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("bd_aula")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("WinThread")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcf02a6524e59cd4afb9736b9aa90bdcdaa16ab5")]
-[assembly: System.Reflection.AssemblyProductAttribute("bd_aula")]
-[assembly: System.Reflection.AssemblyTitleAttribute("bd_aula")]
+[assembly: System.Reflection.AssemblyProductAttribute("WinThread")]
+[assembly: System.Reflection.AssemblyTitleAttribute("WinThread")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
