@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>Login com bloqueio</title>
+        <style>
+            body {
+                font-family: arial;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100 vh;
+                background-color: #f0f0f0;
+            }
+
+            .login-container{
+                background-color: #fff;
+                padding: 20 px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0, 1);
+            }
+
+            .login-container h2{
+                margin-bottom: 20px;
+            }
+
+            .login-container input{
+                width: 100%;
+                padding: 10 px;
+                margin: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .login-container button{
+                width: 100%;
+                padding: 10px;
+                background-color: #4caf50;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .login-container button:hover{
+                background-color: #45a049;
+            }
+
+            .error{
+                color: red;
+                display: none;
+            }
+
+            
+            .blocked{
+                color: red;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Nome do usuário" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+                <p class="error" id="errorMessage">Usuário ou senha inválidos</p>
+                <p class="blocked" id="blockedMessage">Conta bloqueada após 3 tentativas falhas!</p>
+            </form>
+        </div>
+
+        <script>
+            let attempts = 0;
+            const maxAttempts = 3;
+
+            document.getElementById('loginForm').addEventListener('submit', function(event){
+                event.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const errorMessage = document.getElementById('errorMessage');
+                const blockedMessage = document.getElementById('blockedMessage');
+
+                if (attempts >= maxAttempts){
+                    blockedMessage.style.display = 'block';
+                    return;
+                }
+
+                if (username === 'admin' && password === "123456"){
+                    alert('Login bem-sucedido!');
+                }
+                else {
+                    attempts++;
+                    errorMessage.style.display = 'block';
+                    if (attempts >= maxAttempts){
+                        blockedMessage.style.display = 'block';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
