@@ -5,7 +5,8 @@ namespace bd_aula
 {
     public partial class Form1 : Form
     {
-        private string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ExemploDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+        private string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+        
         public Form1()
         {
             InitializeComponent();
