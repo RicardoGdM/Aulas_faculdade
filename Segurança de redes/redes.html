@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Port Scanner</Title>
+    </head>
+    <body>
+        <h1>Port Scanner</h1>
+        <input type="text" id="ip" placeholder="Enter IP (e.g., 127.0.0.0)">
+        <button onClick="scanPorts()">Scan Ports</button>
+        <div id="results"></div>
+
+        <script>
+            async function scanPort(ip, port){
+                try {
+                    const controller = new AbortController();
+                    const signal = controller.signal;
+
+                    //Define Timeout
+                    setTimeout(() => controller.abort(),1000);
+                    
+                    //Attempt WebSocket connection
+                    const socket = new WebSocket(`ws://${ip}:${port}`);
+                    socket.onopen = () => {
+                        document.getElementById('results').innerHTM += `<p>Port ${port} is open</p>`;
+                        socket.close();
+                    };
+                    socket.onerror = () => {};
+                }catch (e) {}
+            }
+
+            async function scanPorts() {
+                const ip = document.getElementById("ip").value;
+                document.getElementById("results").innerHTML = "Scanning...";
+                for (let port = 1; port <= 100; port ++){
+                    scanPort(ip, port);
+                }
+            }
+        </script>
+    </body>
+</html>
