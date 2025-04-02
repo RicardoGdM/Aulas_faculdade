@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Simulado2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc763a876675fbbe564e5adabcc64d25d4f06f71")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+147b2043ffdf16acec201c532e0955b911a0d50d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Simulado2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Simulado2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
