@@ -1,7 +1,5 @@
 use erp;
 
-
-
 create table pedidos(
 	id int primary key identity,
 	fk_pessoas int not null,
@@ -138,3 +136,4 @@ FROM produtos p
 LEFT JOIN estoque e ON p.id = e.fk_produto
 LEFT JOIN pessoas pes ON p.fk_fornecedor = pes.id
 WHERE e.ativo = 1;
+
