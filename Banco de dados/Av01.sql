@@ -1,0 +1,86 @@
+CREATE DATABASE Avaliacao;
+
+USE Avaliacao;
+
+CREATE TABLE Curso (
+	id INT PRIMARY KEY IDENTITY,
+	nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Bloco (
+	id INT PRIMARY KEY IDENTITY,
+	nome VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Escola (
+	id INT PRIMARY KEY IDENTITY,
+	nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Professor (
+	id INT PRIMARY KEY IDENTITY,
+	fk_escola INT,
+	nome VARCHAR(100)
+	CONSTRAINT Fk_Professor_Escola FOREIGN KEY
+	(fk_escola) REFERENCES Escola(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Aluno (
+	id INT PRIMARY KEY IDENTITY,
+	fk_escola INT,
+	nome VARCHAR(100)
+	CONSTRAINT Fk_Aluno_Escola FOREIGN KEY
+	(fk_escola) REFERENCES Escola(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Sala (
+	id INT PRIMARY KEY IDENTITY,
+	fk_bloco INT,
+	nome VARCHAR(100)
+	CONSTRAINT Fk_Sala_Bloco FOREIGN KEY
+	(fk_bloco) REFERENCES Bloco(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Disciplina (
+	id INT PRIMARY KEY IDENTITY,
+	fk_curso INT,
+	modalidade INT,
+	nome VARCHAR(100)
+	CONSTRAINT Fk_Disciplina_Curso FOREIGN KEY
+	(fk_curso) REFERENCES Curso(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Nota (
+	id INT PRIMARY KEY IDENTITY,
+	fk_aluno INT,
+	fk_disciplina INT,
+	pontos INT
+	CONSTRAINT Fk_Nota_Aluno FOREIGN KEY
+	(fk_aluno) REFERENCES Aluno(id),
+	CONSTRAINT Fk_Nota_Disciplina FOREIGN KEY
+	(fk_disciplina) REFERENCES Disciplina(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Semana (
+	id INT PRIMARY KEY IDENTITY,
+	dia VARCHAR(100),
+	fk_professor INT,
+	fk_aluno INT,
+	fk_disciplina INT,
+	fk_sala INT
+	CONSTRAINT Fk_Semana_Professor FOREIGN KEY
+	(fk_professor) REFERENCES Professor(id),
+	CONSTRAINT Fk_Semana_Aluno FOREIGN KEY
+	(fk_aluno) REFERENCES Aluno(id),
+	CONSTRAINT Fk_Semana_Disciplina FOREIGN KEY
+	(fk_disciplina) REFERENCES Disciplina(id),
+	CONSTRAINT Fk_Semana_Sala FOREIGN KEY
+	(fk_sala) REFERENCES Sala(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
