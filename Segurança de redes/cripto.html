@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia Simples</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --background-color: #f8f9fa;
+            --card-color: #ffffff;
+            --text-color: #333333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: var(--card-color);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        button:nth-child(1) {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        button:nth-child(2) {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .result-container {
+            background-color: #f0f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .result-label {
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        #resultado {
+            word-break: break-all;
+            padding: 10px;
+            background-color: white;
+            border-radius: 3px;
+            min-height: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Criptografia Simples</h1>
+        
+        <div class="input-group">
+            <label for="texto">Digite o texto:</label>
+            <input type="text" id="texto" placeholder="Digite o texto aqui...">
+        </div>
+        
+        <div class="button-group">
+            <button onclick="criptografar()">Criptografar</button>
+            <button onclick="descriptografar()">Descriptografar</button>
+        </div>
+        
+        <div class="result-container">
+            <span class="result-label">Resultado:</span>
+            <div id="resultado"></div>
+        </div>
+    </div>
+
+    <script>
+        function criptografar() {
+            const texto = document.getElementById('texto').value;
+            if (!texto) {
+                alert("Por favor, digite um texto para criptografar");
+                return;
+            }
+            
+            const resultado = texto.split('')
+                                   .map(char => String.fromCharCode(char.charCodeAt(0) + 5))
+                                   .join('');
+            document.getElementById('resultado').textContent = resultado;
+        }
+
+        function descriptografar() {
+            const texto = document.getElementById('texto').value;
+            if (!texto) {
+                alert("Por favor, digite um texto para descriptografar");
+                return;
+            }
+            
+            const resultado = texto.split('')
+                                   .map(char => String.fromCharCode(char.charCodeAt(0) - 5))
+                                   .join('');
+            document.getElementById('resultado').textContent = resultado;
+        }
+    </script>
+</body>
+</html>
